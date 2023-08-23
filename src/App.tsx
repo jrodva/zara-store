@@ -1,11 +1,12 @@
-import { JSX } from 'react';
+import { JSX } from 'react'
 import './App.scss'
+import Header from './components/Header'
 
 const App = (): JSX.Element => {
 
   return (
     <>
-      <p>Empty app</p>
+      <Header isAvailableToAddRows={false} isAvailableToSave={false} />
     </>
   )
 }

@@ -28,6 +28,7 @@
     "@storybook/react": "^7.3.2",
     "@storybook/react-vite": "^7.3.2",
     "@storybook/testing-library": "^0.2.0",
+    "@types/node": "^20.5.3",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -42,6 +43,8 @@
     "sass": "^1.66.1",
     "storybook": "^7.3.2",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-plugin-svgr": "^3.2.0",
+    "vite-tsconfig-paths": "^4.2.0"
   }
 }
