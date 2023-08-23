@@ -1,3 +1,46 @@
 {
-  "products": []
+  "products": [
+    {
+      "id": 1,
+      "name": "JEANS RELAXED ROTOS",
+      "price": 39.95,
+      "currency": "EUR",
+      "image": "https://static.zara.net/photos///2023/I/0/2/p/8062/333/427/2/w/468/8062333427_15_1_1.jpg?ts=1692355484140"
+    },
+    {
+      "id": 2,
+      "name": "JEANS SLIM CROPPED",
+      "price": 39.95,
+      "currency": "EUR",
+      "image": "https://static.zara.net/photos///2023/I/0/2/p/8062/333/427/2/w/468/8062333427_15_1_1.jpg?ts=1692355484140"
+    },
+    {
+      "id": 3,
+      "name": "JEANS SLIM FIT",
+      "price": 25.95,
+      "currency": "EUR",
+      "image": "https://static.zara.net/photos///2023/I/0/2/p/4060/311/407/2/w/468/4060311407_15_1_1.jpg?ts=1692202460190"
+    },
+    {
+      "id": 4,
+      "name": "JEANS PLIEGUES RELAXED FIT",
+      "price": 35.95,
+      "currency": "EUR",
+      "image": "https://static.zara.net/photos///2023/I/0/2/p/1538/310/400/2/w/248/1538310400_15_1_1.jpg?ts=1690535015005"
+    },
+    {
+      "id": 5,
+      "name": "JEANS STRAIGHT FIT",
+      "price": 29.95,
+      "currency": "EUR",
+      "image": "https://static.zara.net/photos///2023/I/0/2/p/8062/405/406/2/w/468/8062405406_15_1_1.jpg?ts=1689692933688"
+    },
+    {
+      "id": 6,
+      "name": "JEANS SKINNY FIT",
+      "price": 19.95,
+      "currency": "EUR",
+      "image": "https://static.zara.net/photos///2023/I/0/1/p/5575/320/800/2/w/468/5575320800_15_1_1.jpg?ts=1689609171514"
+    }
+  ]
 }
