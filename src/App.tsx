@@ -6,7 +6,7 @@ const App = (): JSX.Element => {
 
   return (
     <>
-      <Header isAvailableToAddRows={false} isAvailableToSave={false} />
+      <Header isAvailableToAddRows={true} isAvailableToSave={false} />
     </>
   )
 }

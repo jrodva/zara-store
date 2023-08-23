@@ -1,0 +1,36 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: sticky;
+
+  .zara-logo {
+    height: 4em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+    &:hover {
+      filter: drop-shadow(0 0 2em #737171);
+    }
+  }
+
+  .header-button {
+    border: 1px solid #000;
+    padding: 4px 8px;
+    font-size: 1em;
+    font-weight: 300;
+    font-family: inherit;
+    text-transform: uppercase;
+    background-color: transparent;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    &:hover {
+      border-color: #ccc;
+    }
+    &:focus,
+    &:focus-visible {
+      outline: 4px auto -webkit-focus-ring-color;
+    }
+  }
+}
+
