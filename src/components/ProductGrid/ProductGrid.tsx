@@ -42,7 +42,7 @@ export const ProductGrid: FC<Props> = ({ cards }): JSX.Element => {
       <div className='list-container'>
         <DragDropContext onDragEnd={handleDragEnd}>
           {rows.map((row, rowIndex) => (
-            <StrictModeDroppable key={rowIndex} droppableId={`${rowIndex}`} direction='horizontal'>
+            <StrictModeDroppable key={rowIndex} droppableId={`${rowIndex}`} direction='horizontal' isDropDisabled={row.length === 3}>
               {(provided) => (
                 <div
                   ref={provided.innerRef}
