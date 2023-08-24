@@ -9,7 +9,7 @@ export const Header: FC<Props> = ({isAvailableToAddRows, isAvailableToSave}): JS
 
   }
 
-  const saveChanges = () => {
+  const save = () => {
 
   }
 
@@ -25,10 +25,10 @@ export const Header: FC<Props> = ({isAvailableToAddRows, isAvailableToSave}): JS
       />
       <input
         type={'button'}
-        value={'Save changes'}
+        value={'Save'}
         className='header-button'
         disabled={!isAvailableToSave}
-        onClick={saveChanges}
+        onClick={save}
       />
     </div>
   )
