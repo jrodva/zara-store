@@ -1,8 +1,8 @@
 import { FC, JSX } from 'react'
-import { Props } from './props.ts'
-import './card.scss'
+import { Card } from '../interfaces/Card.ts'
+import './productCard.scss'
 
-export const Card: FC<Props> = ({name, price, currency, image}): JSX.Element => {
+export const ProductCard: FC<Card> = ({name, price, currency, image}): JSX.Element => {
 
   return (
     <div className='card-container'>
