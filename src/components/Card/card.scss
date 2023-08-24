@@ -1,0 +1,26 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+
+  .card-image {
+    width: 120px;
+    aspect-ratio: auto 120 / 301;
+    height: 301px;
+    align-self: center;
+  }
+
+  .card-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 1rem;
+    border-top: 1px solid #000;
+    background-color: #fff;
+
+    .card-text {
+      font-size: 0.7rem;
+    }
+  }
+}
