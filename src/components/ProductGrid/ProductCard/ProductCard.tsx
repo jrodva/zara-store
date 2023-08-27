@@ -6,7 +6,7 @@ export const ProductCard: FC<Card> = ({name, price, currency, image}): JSX.Eleme
 
   return (
     <div className='card-container'>
-      <img src={image} className='card-image' alt={name}/>
+      <img src={image} alt={name}/>
       <div className='card-info'>
         <span className='card-text'>{name}</span>
         <span className='card-text'>{price} {currency}</span>

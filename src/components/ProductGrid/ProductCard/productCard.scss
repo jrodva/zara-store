@@ -1,14 +1,7 @@
 .card-container {
   display: flex;
   flex-direction: column;
-  width: 30vw;
-
-  .card-image {
-    width: 120px;
-    aspect-ratio: auto 120 / 301;
-    height: 301px;
-    align-self: center;
-  }
+  width: 15vw;
 
   .card-info {
     display: flex;

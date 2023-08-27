@@ -23,20 +23,22 @@ export const Header: FC<Props> = ({isAvailableToAddRows, isAvailableToSave}): JS
           <img src={zoomOutLogo} className='zoom-logo' alt='Zoom out logo'/>
           <img src={zoomInLogo} className='zoom-logo' alt='Zoom in logo'/>
         </div>
-        <input
-          type={'button'}
-          value={'Add'}
-          className='header-button'
-          disabled={!isAvailableToAddRows}
-          onClick={addRow}
-        />
-        <input
-          type={'button'}
-          value={'Save'}
-          className='header-button'
-          disabled={!isAvailableToSave}
-          onClick={saveChanges}
-        />
+        <div className='header-buttons-container'>
+          <input
+            type={'button'}
+            value={'Add'}
+            className='header-button'
+            disabled={!isAvailableToAddRows}
+            onClick={addRow}
+          />
+          <input
+            type={'button'}
+            value={'Save'}
+            className='header-button'
+            disabled={!isAvailableToSave}
+            onClick={saveChanges}
+          />
+        </div>
       </div>
       <div className='bottom-header'>
         <h1>Jeans</h1>

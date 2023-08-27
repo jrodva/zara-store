@@ -6,7 +6,6 @@
     position: sticky;
     top: 0;
     background-color: rgba(255, 255, 255, 0.95);
-    padding: 1rem;
     width: 100%;
   }
 
@@ -35,11 +34,13 @@
         flex: 1;
 
         .element {
+          display: flex;
           padding: 0.5rem 1rem;
           border: 1px solid #ccc;
           border-radius: 0.25rem;
           background-color: #fff;
           flex: 1;
+          justify-content: center;
           max-width: calc(33.333% - 0.5rem);
         }
       }
