@@ -1,7 +1,7 @@
 .card-container {
   display: flex;
   flex-direction: column;
-  width: 15vw;
+  width: 5vw;
 
   .card-info {
     display: flex;
@@ -15,5 +15,17 @@
     .card-text {
       font-size: 0.7rem;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    width: 10vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    width: 15vw;
   }
 }
