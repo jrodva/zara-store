@@ -23,7 +23,7 @@
       margin: 0.5rem 0;
       flex-direction: row;
       justify-content: center;
-      background-color: #f0f0f0;
+      background-color: #d0cdcd59;
       min-height: 4rem;
 
       &-items {
@@ -36,7 +36,6 @@
         .element {
           display: flex;
           padding: 0.5rem 1rem;
-          border: 1px solid #ccc;
           border-radius: 0.25rem;
           background-color: #fff;
           flex: 1;
