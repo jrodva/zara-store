@@ -5,6 +5,8 @@ import ProductCard from '../ProductCard'
 import { Props } from './props.ts'
 import { StrictModeDroppable } from '../../../utils/StrictModeDroppable.tsx'
 
+const MAX_ELEMENTS_IN_ROW = 3
+
 export const ProductRow: FC<Props> = ({ row, rowIndex, setRows, rows}): JSX.Element => {
 
   const handleMoveRow = (fromIdx: number, toIdx: number) => {
@@ -15,9 +17,12 @@ export const ProductRow: FC<Props> = ({ row, rowIndex, setRows, rows}): JSX.Elem
     setRows([...rows])
   }
 
-
   return (
-    <StrictModeDroppable key={rowIndex} droppableId={`${rowIndex}`} direction='horizontal' isDropDisabled={row.length === 3}>
+    <StrictModeDroppable
+      key={rowIndex}
+      droppableId={`${rowIndex}`}
+      direction='horizontal'
+      isDropDisabled={row.length === MAX_ELEMENTS_IN_ROW}>
       {(provided) => (
         <div
           ref={provided.innerRef}

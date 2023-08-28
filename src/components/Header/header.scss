@@ -1,3 +1,5 @@
+@use '../../styles/mixings.scss';
+
 .header-container {
   display: flex;
   flex-direction: column;
@@ -42,22 +44,7 @@
       width: 200px;
 
       .header-button {
-        border: 1px solid #000;
-        padding: 4px 8px;
-        font-size: 1em;
-        font-weight: 300;
-        font-family: inherit;
-        text-transform: uppercase;
-        background-color: transparent;
-        cursor: pointer;
-        transition: border-color 0.25s;
-        &:hover {
-          border-color: #ccc;
-        }
-        &:focus,
-        &:focus-visible {
-          outline: 4px auto -webkit-focus-ring-color;
-        }
+        @include mixings.primary-button;
       }
     }
   }

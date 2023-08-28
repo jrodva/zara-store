@@ -1,3 +1,5 @@
+@use '../../../styles/mixings.scss';
+
 .row {
   display: flex;
   gap: 0.5rem;
@@ -34,7 +36,9 @@
     align-items: center;
 
     button {
+      @include mixings.primary-button;
       margin: 0.25rem;
+      background-color: #FFF;
     }
   }
 }
