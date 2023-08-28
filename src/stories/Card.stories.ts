@@ -17,6 +17,7 @@ type Story = StoryObj<typeof meta>;
 
 export const AllData: Story = {
   args: {
+    id: 4,
     name: 'JEANS SLIM CROPPED',
     price: 39.95,
     currency: 'EUR',
