@@ -1,1 +1,1 @@
-export * from './interfaces/Card';
+export * from './interfaces/Card'
