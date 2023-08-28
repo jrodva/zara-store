@@ -6,7 +6,7 @@ import { Props } from './props.ts'
 import { StrictModeDroppable } from '../../../utils/StrictModeDroppable.tsx'
 import { MAX_PRODUCTS_PER_ROW } from '../../../constants/products.ts'
 
-export const ProductRow: FC<Props> = ({ row, rowIndex, setRows, rows}): JSX.Element => {
+export const ProductRow: FC<Props> = ({ row, rowIndex, setRows, rows, zoom}): JSX.Element => {
 
   const handleMoveRow = (fromIdx: number, toIdx: number) => {
     const movedRow = rows[fromIdx]
@@ -37,7 +37,7 @@ export const ProductRow: FC<Props> = ({ row, rowIndex, setRows, rows}): JSX.Elem
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     className='element'>
-                    <ProductCard {...element} />
+                    <ProductCard {...element} zoom={zoom}/>
                   </div>
                 )}
               </Draggable>

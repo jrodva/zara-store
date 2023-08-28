@@ -5,7 +5,14 @@ import zaraLogo from '@/assets/zara.svg'
 import zoomInLogo from '@/assets/zoom-in.svg'
 import zoomOutLogo from '@/assets/zoom-out.svg'
 
-export const Header: FC<Props> = ({isAvailableToAddRows, isAvailableToSave}): JSX.Element => {
+export const Header: FC<Props> = ({isAvailableToAddRows, isAvailableToSave, setZoom, zoom}): JSX.Element => {
+  const zoomIn = () => {
+    zoom < 1 && setZoom(Math.round((zoom + 0.1) * 10) / 10)
+  }
+
+  const zoomOut = () => {
+    zoom > 0.3 && setZoom(Math.round((zoom - 0.1) * 10) / 10)
+  }
 
   const addRow = () => {
 
@@ -20,8 +27,16 @@ export const Header: FC<Props> = ({isAvailableToAddRows, isAvailableToSave}): JS
       <div className='top-header'>
         <img src={zaraLogo} className='zara-logo' alt='Zara logo'/>
         <div className='zoom-container'>
-          <img src={zoomOutLogo} className='zoom-logo' alt='Zoom out logo'/>
-          <img src={zoomInLogo} className='zoom-logo' alt='Zoom in logo'/>
+          <img
+            src={zoomOutLogo}
+            className={`zoom-logo ${zoom === 0.3 ? 'disabled' : ''}`}
+            alt='Zoom out logo'
+            onClick={zoomOut}/>
+          <img
+            src={zoomInLogo}
+            className={`zoom-logo ${zoom === 1 ? 'disabled' : ''}`}
+            alt='Zoom in logo'
+            onClick={zoomIn}/>
         </div>
         <div className='header-buttons-container'>
           <input

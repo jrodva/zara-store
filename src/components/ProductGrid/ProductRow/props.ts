@@ -5,4 +5,5 @@ export interface Props {
   rowIndex: number
   setRows: (rows: Card[][]) => void
   rows: Card[][]
+  zoom: number
 }

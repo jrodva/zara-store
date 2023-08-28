@@ -4,11 +4,13 @@ import Header from '../Header'
 import { DragDropContext, DropResult } from 'react-beautiful-dnd'
 import ProductRow from './ProductRow'
 import { Card } from './interfaces/Card.ts'
-import { useProducts} from './hooks/products.ts'
+import { useProducts} from './hooks/products/products.ts'
+import { useZoom } from './hooks/zoom/zoom.ts'
 
 export const ProductGrid: FC = (): JSX.Element => {
   const { products, isLoading, isError } = useProducts()
   const [rows, setRows] = useState<Card[][]>([[]])
+  const { zoom, setZoom } = useZoom()
 
   useEffect(() => {
     !isLoading && !isError && setRows(products)
@@ -33,7 +35,7 @@ export const ProductGrid: FC = (): JSX.Element => {
   return (
     <div className='app'>
       <header className='app-header'>
-        <Header isAvailableToAddRows isAvailableToSave></Header>
+        <Header isAvailableToAddRows isAvailableToSave setZoom={setZoom} zoom={zoom}></Header>
       </header>
       {
         isLoading && <div>Loading...</div>
@@ -47,7 +49,13 @@ export const ProductGrid: FC = (): JSX.Element => {
             <DragDropContext onDragEnd={handleDragEnd}>
               {
                 rows.map((row, rowIndex) => (
-                  <ProductRow key={rowIndex.toString()} row={row} rowIndex={rowIndex} setRows={setRows} rows={rows}/>
+                  <ProductRow
+                    key={rowIndex.toString()}
+                    row={row}
+                    rowIndex={rowIndex}
+                    setRows={setRows}
+                    rows={rows}
+                    zoom={zoom}/>
                 ))
               }
             </DragDropContext>
