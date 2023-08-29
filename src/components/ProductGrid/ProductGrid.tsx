@@ -16,7 +16,7 @@ export const ProductGrid: FC = (): JSX.Element => {
 
   useEffect(() => {
     !isLoading && !isError && setRows(products)
-  }, [isLoading, isError, products])
+  }, [isLoading, isError, products, setRows])
 
   useEffect(() => {
     setProducts(rows)

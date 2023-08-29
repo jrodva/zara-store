@@ -61,7 +61,7 @@ export const ProductRow: FC<Props> = ({
 
           <div className='row-controls'>
             <div className='selector-container'>
-              <select defaultValue={selectedTemplates[rowIndex]} onChange={handleSelectTemplate}>
+              <select value={selectedTemplates[rowIndex]} onChange={handleSelectTemplate}>
                 {
                   templates.map((template, optionIndex) => (
                     <option key={`temp-${optionIndex}`}  value={template.alignment}> { template.name } </option>
