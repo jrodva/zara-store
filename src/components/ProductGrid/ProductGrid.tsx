@@ -8,13 +8,17 @@ import { useProducts} from './hooks/products/products.ts'
 import { useZoom } from './hooks/zoom/zoom.ts'
 
 export const ProductGrid: FC = (): JSX.Element => {
-  const { products, isLoading, isError, addProductsRow } = useProducts()
+  const { products, isLoading, isError, addEmptyProductsRow, setProducts } = useProducts()
   const [rows, setRows] = useState<Card[][]>([[]])
   const { zoom, setZoom } = useZoom()
 
   useEffect(() => {
     !isLoading && !isError && setRows(products)
   }, [isLoading, isError, products])
+
+  useEffect(() => {
+    setProducts(rows)
+  }, [rows, setProducts])
 
   const handleDragEnd = (result: DropResult) => {
     if (!result.destination) return
@@ -40,7 +44,12 @@ export const ProductGrid: FC = (): JSX.Element => {
   return (
     <div className='app'>
       <header className='app-header'>
-        <Header isAvailableToAddRows={products.length < products.flat(1).length} isAvailableToSave setZoom={setZoom} zoom={zoom} addProductsRow={addProductsRow}></Header>
+        <Header
+          isAvailableToAddRows={products.length < products.flat(1).length}
+          isAvailableToSave={products.every((row) => row.length > 0)}
+          setZoom={setZoom}
+          zoom={zoom}
+          addProductsRow={addEmptyProductsRow}/>
       </header>
       {
         isLoading && <div>Loading...</div>
