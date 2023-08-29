@@ -1,3 +1,42 @@
 {
-  "grid": []
+  "grid": [
+    {
+      "templateId": "1",
+        "products": [
+          {
+            "id": 1,
+            "name": "JEANS WIDE FIT",
+            "price": 39.95,
+            "currency": "EUR",
+            "image": "https://static.zara.net/photos///2023/I/0/2/p/9794/300/716/2/w/247/9794300716_15_1_1.jpg?ts=1692188211373"
+          },
+          {
+            "id": 2,
+            "name": "SLIM CROPPED",
+            "price": 39.95,
+            "currency": "EUR",
+            "image": "https://static.zara.net/photos///2023/I/0/2/p/8062/333/427/2/w/468/8062333427_15_1_1.jpg?ts=1692355484140"
+          }
+        ]
+    },
+    {
+      "templateId": "2",
+      "products": [
+        {
+          "id": 3,
+          "name": "JEANS SLIM FIT",
+          "price": 25.95,
+          "currency": "EUR",
+          "image": "https://static.zara.net/photos///2023/I/0/2/p/4060/311/407/2/w/468/4060311407_15_1_1.jpg?ts=1692202460190"
+        },
+        {
+          "id": 4,
+          "name": "PLIEGUES RELAXED FIT",
+          "price": 35.95,
+          "currency": "EUR",
+          "image": "https://static.zara.net/photos///2023/I/0/2/p/1538/310/400/2/w/248/1538310400_15_1_1.jpg?ts=1690535015005"
+        }
+      ]
+    }
+  ]
 }
