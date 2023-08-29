@@ -19,16 +19,18 @@ export const ProductGrid: FC = (): JSX.Element => {
   const handleDragEnd = (result: DropResult) => {
     if (!result.destination) return
 
-    const sourceRowIdx = +result.source.droppableId
-    const destRowIdx = +result.destination.droppableId
-    const sourceRow = [...rows[sourceRowIdx]]
-    const destRow = [...rows[destRowIdx]]
-    const [movedElement] = sourceRow.splice(result.source.index, 1)
+    const {
+      source: { index: sourceIndex, droppableId: sourceDroppableId },
+      destination: { index: destinationIndex, droppableId: destinationDroppableId }
+    } = result
+    const sourceRow = [...rows[+sourceDroppableId]]
+    const destRow = [...rows[+destinationDroppableId]]
+    const [movedElement] = sourceRow.splice(sourceIndex, 1)
     const newRows = [...rows]
 
-    destRow.splice(result.destination.index, 0, movedElement)
-    newRows[sourceRowIdx] = sourceRow
-    newRows[destRowIdx] = destRow
+    destRow.splice(destinationIndex, 0, movedElement)
+    newRows[+sourceDroppableId] = sourceRow
+    newRows[+destinationDroppableId] = destRow
     setRows(newRows)
   }
 
