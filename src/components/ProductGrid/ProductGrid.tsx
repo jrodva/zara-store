@@ -3,7 +3,7 @@ import './productGrid.scss'
 import Header from '../Header'
 import { DragDropContext, DropResult } from 'react-beautiful-dnd'
 import ProductRow from './ProductRow'
-import { Card } from './interfaces/Card.ts'
+import { Card } from '../../interfaces/Card.ts'
 import { useProducts} from './hooks/products/products.ts'
 import { useZoom } from './hooks/zoom/zoom.ts'
 

@@ -1,4 +1,4 @@
-import { Card } from '../interfaces/Card.ts'
+import { Card } from '../../../interfaces/Card.ts'
 
 export interface Props {
   row: Card[]

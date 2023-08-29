@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 import { ProductsHook } from './types.ts'
-import { Card } from '../../interfaces/Card.ts'
+import { Card } from '../../../../interfaces/Card.ts'
 import { getProducts } from '../../../../services/productsService.ts'
 import { parseProductsArrayToMatrix } from '../../../../utils/parseProductsArrayToMatrix.ts'
 import queryString from 'query-string'

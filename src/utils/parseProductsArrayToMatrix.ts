@@ -1,4 +1,4 @@
-import { Card } from '../components/ProductGrid/interfaces/Card.ts'
+import { Card } from '../interfaces/Card.ts'
 import { MAX_PRODUCTS_PER_ROW } from '../constants/products.ts'
 
 export const parseProductsArrayToMatrix = (products: Card[]): Card[][] => {
