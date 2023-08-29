@@ -1,4 +1,4 @@
-import { FC, JSX } from 'react'
+import { ChangeEvent, FC, JSX } from 'react'
 import './productRow.scss'
 import { Draggable } from 'react-beautiful-dnd'
 import ProductCard from '../ProductCard'
@@ -6,14 +6,28 @@ import { Props } from './props.ts'
 import { StrictModeDroppable } from '../../../utils/StrictModeDroppable.tsx'
 import { MAX_PRODUCTS_PER_ROW } from '../../../constants/products.ts'
 
-export const ProductRow: FC<Props> = ({ row, rowIndex, setRows, rows, zoom}): JSX.Element => {
-
+export const ProductRow: FC<Props> = ({
+  row,
+  rowIndex,
+  setRows,
+  rows,
+  templates,
+  selectedTemplates,
+  setSelectedTemplates,
+  zoom}): JSX.Element => {
   const handleMoveRow = (fromIdx: number, toIdx: number) => {
     const movedRow = rows[fromIdx]
 
     rows.splice(fromIdx, 1)
     rows.splice(toIdx, 0, movedRow)
     setRows([...rows])
+  }
+
+  const handleSelectTemplate = (event: ChangeEvent<HTMLSelectElement>) => {
+    const newSelectedTemplates = [...selectedTemplates]
+    newSelectedTemplates[rowIndex] = event.target.value
+
+    setSelectedTemplates(newSelectedTemplates)
   }
 
   return (
@@ -47,10 +61,12 @@ export const ProductRow: FC<Props> = ({ row, rowIndex, setRows, rows, zoom}): JS
 
           <div className='row-controls'>
             <div className='selector-container'>
-              <select>
-                <option value='Left'>L Template</option>
-                <option value='Center'>C Template</option>
-                <option value='Right'>R Template</option>
+              <select defaultValue={selectedTemplates[rowIndex]} onChange={handleSelectTemplate}>
+                {
+                  templates.map((template, optionIndex) => (
+                    <option key={`temp-${optionIndex}`}  value={template.alignment}> { template.name } </option>
+                  ))
+                }
               </select>
             </div>
             <button

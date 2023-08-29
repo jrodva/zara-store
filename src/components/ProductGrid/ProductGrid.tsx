@@ -6,9 +6,11 @@ import ProductRow from './ProductRow'
 import { Card } from '../../interfaces/Card.ts'
 import { useProducts} from './hooks/products/products.ts'
 import { useZoom } from './hooks/zoom/zoom.ts'
+import { useTemplates } from './hooks/templates/templates.ts'
 
 export const ProductGrid: FC = (): JSX.Element => {
   const { products, isLoading, isError, addEmptyProductsRow, setProducts } = useProducts()
+  const { templates, setSelectedTemplates, selectedTemplates } = useTemplates()
   const [rows, setRows] = useState<Card[][]>([[]])
   const { zoom, setZoom } = useZoom()
 
@@ -19,6 +21,16 @@ export const ProductGrid: FC = (): JSX.Element => {
   useEffect(() => {
     setProducts(rows)
   }, [rows, setProducts])
+
+  useEffect(() => {
+    const templatesAlignments = templates.map((template) => template.alignment)
+    const randomTemplates = Array.from(
+      { length: products.length },
+      () => templatesAlignments[Math.floor(Math.random() * templatesAlignments.length)]
+    )
+
+    setSelectedTemplates(randomTemplates)
+  }, [products, templates, setSelectedTemplates])
 
   const handleDragEnd = (result: DropResult) => {
     if (!result.destination) return
@@ -69,6 +81,9 @@ export const ProductGrid: FC = (): JSX.Element => {
                     rowIndex={rowIndex}
                     setRows={setRows}
                     rows={rows}
+                    selectedTemplates={selectedTemplates}
+                    setSelectedTemplates={setSelectedTemplates}
+                    templates={templates}
                     zoom={zoom}/>
                 ))
               }

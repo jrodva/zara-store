@@ -7,6 +7,7 @@ export const useTemplates = (): TemplatesHook => {
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [isError, setIsError] = useState<boolean>(false)
   const [templates, setTemplates] = useState<Template[]>([])
+  const [selectedTemplates, setSelectedTemplates] = useState<string[]>([])
 
   useEffect((): void => {
     getTemplates()
@@ -24,6 +25,8 @@ export const useTemplates = (): TemplatesHook => {
   return {
     templates,
     isError,
-    isLoading
+    isLoading,
+    selectedTemplates,
+    setSelectedTemplates
   }
 }
