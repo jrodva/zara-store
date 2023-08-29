@@ -42,7 +42,7 @@ export const ProductRow: FC<Props> = ({
           {...provided.droppableProps}
           className='row'>
 
-          <div className='row-items'>
+          <div className='row-items' style={ { justifyContent: selectedTemplates[rowIndex] } }>
             {row.map((element, index) => (
               <Draggable key={element.id} draggableId={element.id.toString()} index={index}>
                 {(provided) => (
