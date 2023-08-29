@@ -46,6 +46,13 @@ export const ProductRow: FC<Props> = ({ row, rowIndex, setRows, rows, zoom}): JS
           </div>
 
           <div className='row-controls'>
+            <div className='selector-container'>
+              <select>
+                <option value='Left'>L Template</option>
+                <option value='Center'>C Template</option>
+                <option value='Right'>R Template</option>
+              </select>
+            </div>
             <button
               onClick={() => handleMoveRow(rowIndex, rowIndex - 1)}
               disabled={rowIndex === 0}>
