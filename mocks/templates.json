@@ -1,3 +1,19 @@
 {
-  "templates": []
+  "templates": [
+    {
+      "id": "1",
+      "name": "Right Template",
+      "alignment": "right"
+    },
+    {
+      "id": "2",
+      "name": "Center Template",
+      "alignment": "center"
+    },
+    {
+      "id": "1",
+      "name": "Left Template",
+      "alignment": "left"
+    }
+  ]
 }

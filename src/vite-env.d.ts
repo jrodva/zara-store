@@ -2,6 +2,7 @@
 
 interface ImportMetaEnv {
   readonly VITE_PRODUCTS_API_URL: string
+  readonly VITE_TEMPLATES_API_URL: string
 }
 
 interface ImportMeta {
