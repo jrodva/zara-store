@@ -8,7 +8,7 @@ import { useProducts} from './hooks/products/products.ts'
 import { useZoom } from './hooks/zoom/zoom.ts'
 
 export const ProductGrid: FC = (): JSX.Element => {
-  const { products, isLoading, isError } = useProducts()
+  const { products, isLoading, isError, addProductsRow } = useProducts()
   const [rows, setRows] = useState<Card[][]>([[]])
   const { zoom, setZoom } = useZoom()
 
@@ -37,7 +37,7 @@ export const ProductGrid: FC = (): JSX.Element => {
   return (
     <div className='app'>
       <header className='app-header'>
-        <Header isAvailableToAddRows isAvailableToSave setZoom={setZoom} zoom={zoom}></Header>
+        <Header isAvailableToAddRows={products.length < products.flat(1).length} isAvailableToSave setZoom={setZoom} zoom={zoom} addProductsRow={addProductsRow}></Header>
       </header>
       {
         isLoading && <div>Loading...</div>

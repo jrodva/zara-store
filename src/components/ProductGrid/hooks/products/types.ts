@@ -4,4 +4,5 @@ export interface ProductsHook {
   products: Card[][]
   isError: boolean
   isLoading: boolean
+  addProductsRow: () => void
 }

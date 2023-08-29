@@ -32,9 +32,17 @@ export const useProducts = (): ProductsHook => {
     setIsError(true)
   }
 
+  const addProductsRow = (): void => {
+    const newProducts = [...products]
+
+    newProducts.push([])
+    setProducts(newProducts)
+  }
+
   return {
     products,
     isError,
     isLoading,
+    addProductsRow
   }
 }

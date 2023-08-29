@@ -5,7 +5,7 @@ import zaraLogo from '@/assets/zara.svg'
 import zoomInLogo from '@/assets/zoom-in.svg'
 import zoomOutLogo from '@/assets/zoom-out.svg'
 
-export const Header: FC<Props> = ({isAvailableToAddRows, isAvailableToSave, setZoom, zoom}): JSX.Element => {
+export const Header: FC<Props> = ({isAvailableToAddRows, isAvailableToSave, setZoom, zoom, addProductsRow}): JSX.Element => {
   const zoomIn = () => {
     zoom < 1 && setZoom(Math.round((zoom + 0.1) * 10) / 10)
   }
@@ -15,7 +15,7 @@ export const Header: FC<Props> = ({isAvailableToAddRows, isAvailableToSave, setZ
   }
 
   const addRow = () => {
-
+    addProductsRow()
   }
 
   const saveChanges = () => {

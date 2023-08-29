@@ -3,4 +3,5 @@ export interface Props {
   isAvailableToAddRows: boolean
   setZoom: (zoom: number) => void
   zoom: number
+  addProductsRow: () => void
 }
