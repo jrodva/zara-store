@@ -23,6 +23,9 @@ export const ProductGrid: FC = (): JSX.Element => {
       source: { index: sourceIndex, droppableId: sourceDroppableId },
       destination: { index: destinationIndex, droppableId: destinationDroppableId }
     } = result
+
+    if (sourceDroppableId === destinationDroppableId && sourceIndex === destinationIndex) return
+
     const sourceRow = [...rows[+sourceDroppableId]]
     const destRow = [...rows[+destinationDroppableId]]
     const [movedElement] = sourceRow.splice(sourceIndex, 1)
