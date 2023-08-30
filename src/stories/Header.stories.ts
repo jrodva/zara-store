@@ -18,13 +18,15 @@ type Story = StoryObj<typeof meta>;
 export const AllAvailable: Story = {
   args: {
     isAvailableToAddRows: true,
-    isAvailableToSave: true
+    isAvailableToSave: true,
+    zoom: 1
   },
 };
 
 export const AllUnavailable: Story = {
   args: {
     isAvailableToAddRows: false,
-    isAvailableToSave: false
+    isAvailableToSave: false,
+    zoom: 1
   },
 };
