@@ -1,4 +1,4 @@
-import { Grid } from '../../../../interfaces/Grid.ts'
+import { Grid } from '@interfaces/Grid.ts'
 
 export interface GridHook {
   isFailedUpdatingGrid: boolean

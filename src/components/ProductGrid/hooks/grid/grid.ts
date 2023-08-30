@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { GridHook } from './types.ts'
-import { postGrid } from '../../../../services/gridService.ts'
-import { Grid } from '../../../../interfaces/Grid.ts'
+import { postGrid } from '@services/gridService.ts'
+import { Grid } from '@interfaces/Grid.ts'
 
 export const useGrid = (): GridHook => {
   const [isUpdatingGrid, setIsUpdatingGrid] = useState<boolean>(true)
