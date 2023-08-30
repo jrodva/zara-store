@@ -9,18 +9,17 @@ import { MAX_PRODUCTS_PER_ROW } from '../../../constants/products.ts'
 export const ProductRow: FC<Props> = ({
   row,
   rowIndex,
-  setRows,
+  exchangeRows,
+  exchangeSelectedTemplates,
   rows,
   templates,
   selectedTemplates,
   setSelectedTemplates,
   zoom}): JSX.Element => {
-  const handleMoveRow = (fromIdx: number, toIdx: number) => {
-    const movedRow = rows[fromIdx]
 
-    rows.splice(fromIdx, 1)
-    rows.splice(toIdx, 0, movedRow)
-    setRows([...rows])
+  const handleMoveRow = (fromIndex: number, toIndex: number) => {
+    exchangeSelectedTemplates(fromIndex, toIndex)
+    exchangeRows(fromIndex, toIndex)
   }
 
   const handleSelectTemplate = (event: ChangeEvent<HTMLSelectElement>) => {

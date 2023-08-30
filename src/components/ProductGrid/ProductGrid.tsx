@@ -1,36 +1,16 @@
-import {FC, JSX, useEffect, useState} from 'react'
+import { FC, JSX } from 'react'
 import './productGrid.scss'
 import Header from '../Header'
 import { DragDropContext, DropResult } from 'react-beautiful-dnd'
 import ProductRow from './ProductRow'
-import { Card } from '../../interfaces/Card.ts'
 import { useProducts} from './hooks/products/products.ts'
 import { useZoom } from './hooks/zoom/zoom.ts'
 import { useTemplates } from './hooks/templates/templates.ts'
 
 export const ProductGrid: FC = (): JSX.Element => {
-  const { products, isLoading, isError, addEmptyProductsRow, setProducts } = useProducts()
-  const { templates, setSelectedTemplates, selectedTemplates } = useTemplates()
-  const [rows, setRows] = useState<Card[][]>([[]])
+  const { products, isLoading, isError, addEmptyProductsRow, exchangeRows, setProducts } = useProducts()
+  const { templates, setSelectedTemplates, selectedTemplates, exchangeSelectedTemplates } = useTemplates({ productsRows: products.length })
   const { zoom, setZoom } = useZoom()
-
-  useEffect(() => {
-    !isLoading && !isError && setRows(products)
-  }, [isLoading, isError, products, setRows])
-
-  useEffect(() => {
-    setProducts(rows)
-  }, [rows, setProducts])
-
-  useEffect(() => {
-    const templatesAlignments = templates.map((template) => template.alignment)
-    const randomTemplates = Array.from(
-      { length: products.length },
-      () => templatesAlignments[Math.floor(Math.random() * templatesAlignments.length)]
-    )
-
-    setSelectedTemplates(randomTemplates)
-  }, [products, templates, setSelectedTemplates])
 
   const handleDragEnd = (result: DropResult) => {
     if (!result.destination) return
@@ -42,15 +22,15 @@ export const ProductGrid: FC = (): JSX.Element => {
 
     if (sourceDroppableId === destinationDroppableId && sourceIndex === destinationIndex) return
 
-    const sourceRow = [...rows[+sourceDroppableId]]
-    const destRow = [...rows[+destinationDroppableId]]
+    const sourceRow = [...products[+sourceDroppableId]]
+    const destRow = [...products[+destinationDroppableId]]
     const [movedElement] = sourceRow.splice(sourceIndex, 1)
-    const newRows = [...rows]
+    const newRows = [...products]
 
     destRow.splice(destinationIndex, 0, movedElement)
     newRows[+sourceDroppableId] = sourceRow
     newRows[+destinationDroppableId] = destRow
-    setRows(newRows)
+    setProducts(newRows)
   }
 
   return (
@@ -74,13 +54,14 @@ export const ProductGrid: FC = (): JSX.Element => {
           <div className='list-container'>
             <DragDropContext onDragEnd={handleDragEnd}>
               {
-                rows.map((row, rowIndex) => (
+                products.map((row, rowIndex) => (
                   <ProductRow
                     key={rowIndex.toString()}
                     row={row}
                     rowIndex={rowIndex}
-                    setRows={setRows}
-                    rows={rows}
+                    exchangeRows={exchangeRows}
+                    exchangeSelectedTemplates={exchangeSelectedTemplates}
+                    rows={products}
                     selectedTemplates={selectedTemplates}
                     setSelectedTemplates={setSelectedTemplates}
                     templates={templates}

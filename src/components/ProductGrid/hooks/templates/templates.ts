@@ -3,7 +3,7 @@ import { TemplatesHook } from './types.ts'
 import { getTemplates } from '../../../../services/templatesService.ts'
 import { Template } from '../../../../interfaces/Template.ts'
 
-export const useTemplates = (): TemplatesHook => {
+export const useTemplates = ({ productsRows }: { productsRows: number } ): TemplatesHook => {
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [isError, setIsError] = useState<boolean>(false)
   const [templates, setTemplates] = useState<Template[]>([])
@@ -22,11 +22,37 @@ export const useTemplates = (): TemplatesHook => {
       })
   }, [])
 
+  useEffect((): void => {
+    productsRows && initSelectedTemplates(templates)
+  }, [productsRows, templates])
+
+  const initSelectedTemplates = (templates: Template[]): void => {
+    const templatesAlignments = templates.map((template) => template.alignment)
+    const randomTemplates = Array.from(
+      { length: productsRows },
+      () => templatesAlignments[Math.floor(Math.random() * templatesAlignments.length)]
+    )
+
+    setSelectedTemplates(randomTemplates)
+  }
+
+  const exchangeSelectedTemplates = (fromIndex: number, toIndex: number): void => {
+    const newSelectedTemplates = [...selectedTemplates]
+    const fromTemplate = newSelectedTemplates[fromIndex]
+    const toTemplate = newSelectedTemplates[toIndex]
+
+    newSelectedTemplates[fromIndex] = toTemplate
+    newSelectedTemplates[toIndex] = fromTemplate
+    setSelectedTemplates(newSelectedTemplates)
+  }
+
+
   return {
     templates,
     isError,
     isLoading,
     selectedTemplates,
-    setSelectedTemplates
+    setSelectedTemplates,
+    exchangeSelectedTemplates
   }
 }
