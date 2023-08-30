@@ -3,8 +3,8 @@ import './productRow.scss'
 import { Draggable } from 'react-beautiful-dnd'
 import ProductCard from '../ProductCard'
 import { Props } from './props.ts'
-import { StrictModeDroppable } from '@/utils/StrictModeDroppable.tsx'
-import { MAX_PRODUCTS_PER_ROW } from '@/constants/products.ts'
+import { StrictModeDroppable } from '@utils/StrictModeDroppable.tsx'
+import { MAX_PRODUCTS_PER_ROW } from '@constants/products.ts'
 
 export const ProductRow: FC<Props> = ({
   row,
