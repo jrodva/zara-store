@@ -1,5 +1,5 @@
-import { Card } from '../interfaces/Card.ts'
-import { MAX_PRODUCTS_PER_ROW } from '../constants/products.ts'
+import { Card } from '@interfaces/Card.ts'
+import { MAX_PRODUCTS_PER_ROW } from '@constants/products.ts'
 
 export const parseProductsArrayToMatrix = (products: Card[]): Card[][] => {
   const productsMatrix: Card[][] = []
