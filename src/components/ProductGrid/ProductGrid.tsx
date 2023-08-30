@@ -1,6 +1,6 @@
 import { FC, JSX } from 'react'
 import './productGrid.scss'
-import Header from '../Header'
+import Header from '@components/Header'
 import { DragDropContext, DropResult } from 'react-beautiful-dnd'
 import ProductRow from './ProductRow'
 import { useProducts} from './hooks/products/products.ts'
