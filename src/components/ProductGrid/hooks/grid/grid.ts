@@ -11,8 +11,7 @@ export const useGrid = (): GridHook => {
     setIsUpdatingGrid(true)
     postGrid(grid)
       .then(response => response.json())
-      .then((data: Grid[]): void => {
-        console.log('datooo ', data);
+      .then((): void => {
         setIsUpdatingGrid(false)
       })
       .catch((): void => {
