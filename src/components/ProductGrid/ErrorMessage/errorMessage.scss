@@ -1,0 +1,32 @@
+.error-message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: fit-content;
+  padding: 0 20px;
+  text-align: center;
+  border: 1px solid #cccc;
+  margin: 0 auto;
+
+  .error-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+  }
+
+
+}

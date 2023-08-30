@@ -7,6 +7,7 @@ import { useProducts} from './hooks/products/products.ts'
 import { useZoom } from './hooks/zoom/zoom.ts'
 import { useTemplates } from './hooks/templates/templates.ts'
 import { useGrid } from './hooks/grid/grid.ts'
+import ErrorMessage from '@components/ProductGrid/ErrorMessage'
 
 export const ProductGrid: FC = (): JSX.Element => {
   const { products, isLoading, isError, addEmptyProductsRow, exchangeRows, setProducts } = useProducts()
@@ -70,7 +71,7 @@ export const ProductGrid: FC = (): JSX.Element => {
         isLoading && <div>Loading...</div>
       }
       {
-        isError && <div>Something went wrong...</div>
+        isError && <ErrorMessage/>
       }
       {
         products.length > 0 && selectedTemplates.length > 0 && (
