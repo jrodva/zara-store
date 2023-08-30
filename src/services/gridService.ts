@@ -1,4 +1,4 @@
-import { Grid } from '../interfaces/Grid.ts'
+import { Grid } from '@interfaces/Grid.ts'
 
 export const postGrid = (grid: Grid[]) => {
   const gridWithIds = grid.map((gridItem, index) => ({ ...gridItem, id: index + 1 }))
