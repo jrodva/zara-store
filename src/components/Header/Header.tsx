@@ -1,10 +1,10 @@
 import { FC, JSX } from 'react'
 import { Props } from './props.ts'
 import './header.scss'
-import zaraLogo from '@/assets/zara.svg'
-import zoomInLogo from '@/assets/zoom-in.svg'
-import zoomOutLogo from '@/assets/zoom-out.svg'
-import { MAX_ZOOM, MIN_ZOOM } from '../../constants/zoom.ts'
+import zaraLogo from '@assets/zara.svg'
+import zoomInLogo from '@assets/zoom-in.svg'
+import zoomOutLogo from '@assets/zoom-out.svg'
+import { MAX_ZOOM, MIN_ZOOM } from '@constants/zoom.ts'
 
 export const Header: FC<Props> = ({isAvailableToAddRows, isAvailableToSave, setZoom, zoom, addProductsRow, saveChanges}): JSX.Element => {
   const zoomIn = () => {
