@@ -6,4 +6,4 @@ const getParams = (ids: string): string => {
 }
 
 export const getProducts = (ids: string) =>
-  fetch(import.meta.env.VITE_PRODUCTS_API_URL + getParams(ids), { method: 'GET', mode: 'cors' });
+  fetch(import.meta.env.VITE_PRODUCTS_API_URL + getParams(ids), { method: 'GET', mode: 'cors' })

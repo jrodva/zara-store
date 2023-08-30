@@ -3,9 +3,9 @@ import './productCard.scss'
 import { Props } from './props.ts'
 
 export const ProductCard: FC<Props> = ({name, price, currency, image, zoom}): JSX.Element => {
-  const [dynamicWidth, setDynamicWidth] = useState<number | undefined>(undefined);
-  const [initialWidth, setInitialWidth] = useState<number>(0);
-  const elementRef = useRef<HTMLDivElement | null>(null);
+  const [dynamicWidth, setDynamicWidth] = useState<number | undefined>(undefined)
+  const [initialWidth, setInitialWidth] = useState<number>(0)
+  const elementRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     if (elementRef.current) {

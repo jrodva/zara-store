@@ -9,11 +9,11 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
   },
-} satisfies Meta<typeof Header>;
+} satisfies Meta<typeof Header>
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>
 
 export const AllAvailable: Story = {
   args: {
@@ -21,7 +21,7 @@ export const AllAvailable: Story = {
     isAvailableToSave: true,
     zoom: 1
   },
-};
+}
 
 export const AllUnavailable: Story = {
   args: {
@@ -29,4 +29,4 @@ export const AllUnavailable: Story = {
     isAvailableToSave: false,
     zoom: 1
   },
-};
+}

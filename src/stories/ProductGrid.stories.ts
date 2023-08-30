@@ -8,12 +8,12 @@ const meta = {
   parameters: {
     layout: 'fullscreen'
   },
-} satisfies Meta<typeof ProductGrid>;
+} satisfies Meta<typeof ProductGrid>
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>
 
 export const ErrorLoad: Story = {
   args: { },
-};
+}
