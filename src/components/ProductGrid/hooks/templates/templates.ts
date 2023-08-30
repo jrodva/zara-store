@@ -23,8 +23,8 @@ export const useTemplates = ({ productsRows }: { productsRows: number } ): Templ
   }, [])
 
   useEffect((): void => {
-    productsRows && initSelectedTemplates(templates)
-  }, [productsRows, templates])
+    productsRows && selectedTemplates.length === 0 && initSelectedTemplates(templates)
+  }, [productsRows, templates, selectedTemplates])
 
   const initSelectedTemplates = (templates: Template[]): void => {
     const templatesAlignments = templates.map((template) => template.alignment)
