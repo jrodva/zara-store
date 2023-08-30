@@ -1,7 +1,7 @@
 {
   "grid": [
     {
-      "templateId": "1",
+      "alignment": "left",
       "products": [
         {
           "id": 1,
@@ -20,7 +20,7 @@
       ]
     },
     {
-      "templateId": "2",
+      "alignment": "right",
       "products": [
         {
           "id": 3,
