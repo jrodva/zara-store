@@ -1,4 +1,4 @@
-import { Template } from '../../../../interfaces/Template.ts'
+import { Template } from '@interfaces/Template.ts'
 
 export interface TemplatesHook {
   templates: Template[]

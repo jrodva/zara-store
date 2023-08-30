@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import { TemplatesHook } from './types.ts'
-import { getTemplates } from '../../../../services/templatesService.ts'
-import { Template } from '../../../../interfaces/Template.ts'
+import { getTemplates } from '@services/templatesService.ts'
+import { Template } from '@interfaces/Template.ts'
 
 export const useTemplates = ({ productsRows }: { productsRows: number } ): TemplatesHook => {
   const [isLoading, setIsLoading] = useState<boolean>(true)
