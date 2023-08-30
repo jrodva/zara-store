@@ -1,5 +1,5 @@
-import { Card } from '../../../interfaces/Card.ts'
-import { Template } from '../../../interfaces/Template.ts'
+import { Card } from '@interfaces/Card.ts'
+import { Template } from '@interfaces/Template.ts'
 
 export interface Props {
   row: Card[]
