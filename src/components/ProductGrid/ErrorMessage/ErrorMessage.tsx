@@ -10,19 +10,19 @@ export const ErrorMessage: FC = (): JSX.Element => {
       <p>For example:</p>
       <ul>
         <li>
-          <a href={'http://localhost:5173/?ids=[1,2,3,4,5,6]'}>http://localhost:5173/?ids=[1]</a>
+          <a href={'http://localhost:5173/?ids=[1]'}>http://localhost:5173/?ids=[1]</a>
         </li>
         <li>
-          <a href={'http://localhost:5173/?ids=[1,2,3,4,5,6]'}>http://localhost:5173/?ids=[1,2]</a>
+          <a href={'http://localhost:5173/?ids=[1,2]'}>http://localhost:5173/?ids=[1,2]</a>
         </li>
         <li>
-          <a href={'http://localhost:5173/?ids=[1,2,3,4,5,6]'}>http://localhost:5173/?ids=[1,2,3]</a>
+          <a href={'http://localhost:5173/?ids=[1,2,3]'}>http://localhost:5173/?ids=[1,2,3]</a>
         </li>
         <li>
-          <a href={'http://localhost:5173/?ids=[1,2,3,4,5,6]'}>http://localhost:5173/?ids=[1,2,3,4]</a>
+          <a href={'http://localhost:5173/?ids=[1,2,3,4]'}>http://localhost:5173/?ids=[1,2,3,4]</a>
         </li>
         <li>
-          <a href={'http://localhost:5173/?ids=[1,2,3,4,5,6]'}>http://localhost:5173/?ids=[1,2,3,4,5]</a>
+          <a href={'http://localhost:5173/?ids=[1,2,3,4,5]'}>http://localhost:5173/?ids=[1,2,3,4,5]</a>
         </li>
         <li>
           <a href={'http://localhost:5173/?ids=[1,2,3,4,5,6]'}>http://localhost:5173/?ids=[1,2,3,4,5,6]</a>
