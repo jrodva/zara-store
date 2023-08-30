@@ -6,11 +6,18 @@ import ProductRow from './ProductRow'
 import { useProducts} from './hooks/products/products.ts'
 import { useZoom } from './hooks/zoom/zoom.ts'
 import { useTemplates } from './hooks/templates/templates.ts'
+import { useGrid } from './hooks/grid/grid.ts'
 
 export const ProductGrid: FC = (): JSX.Element => {
   const { products, isLoading, isError, addEmptyProductsRow, exchangeRows, setProducts } = useProducts()
-  const { templates, setSelectedTemplates, selectedTemplates, exchangeSelectedTemplates } = useTemplates({ productsRows: products.length })
+  const {
+    templates,
+    setSelectedTemplates,
+    selectedTemplates,
+    exchangeSelectedTemplates
+  } = useTemplates({ productsRows: products.length })
   const { zoom, setZoom } = useZoom()
+  const { updateGrid } = useGrid()
 
   const handleDragEnd = (result: DropResult) => {
     if (!result.destination) return
@@ -33,6 +40,21 @@ export const ProductGrid: FC = (): JSX.Element => {
     setProducts(newRows)
   }
 
+  const saveChanges = () => {
+    const grid = products.map((row, rowIndex) => {
+      return {
+        alignment: selectedTemplates[rowIndex],
+        products: row
+      }
+    })
+    updateGrid(grid)
+  }
+
+  const addProductsRow = () => {
+    addEmptyProductsRow()
+    setSelectedTemplates([...selectedTemplates, 'center'])
+  }
+
   return (
     <div className='app'>
       <header className='app-header'>
@@ -41,7 +63,8 @@ export const ProductGrid: FC = (): JSX.Element => {
           isAvailableToSave={products.every((row) => row.length > 0)}
           setZoom={setZoom}
           zoom={zoom}
-          addProductsRow={addEmptyProductsRow}/>
+          addProductsRow={addProductsRow}
+          saveChanges={saveChanges}/>
       </header>
       {
         isLoading && <div>Loading...</div>
@@ -50,7 +73,7 @@ export const ProductGrid: FC = (): JSX.Element => {
         isError && <div>Something went wrong...</div>
       }
       {
-        products.length > 0 && (
+        products.length > 0 && selectedTemplates.length > 0 && (
           <div className='list-container'>
             <DragDropContext onDragEnd={handleDragEnd}>
               {

@@ -6,21 +6,13 @@ import zoomInLogo from '@/assets/zoom-in.svg'
 import zoomOutLogo from '@/assets/zoom-out.svg'
 import { MAX_ZOOM, MIN_ZOOM } from '../../constants/zoom.ts'
 
-export const Header: FC<Props> = ({isAvailableToAddRows, isAvailableToSave, setZoom, zoom, addProductsRow}): JSX.Element => {
+export const Header: FC<Props> = ({isAvailableToAddRows, isAvailableToSave, setZoom, zoom, addProductsRow, saveChanges}): JSX.Element => {
   const zoomIn = () => {
     zoom < MAX_ZOOM && setZoom(Math.round((zoom + 0.1) * 10) / 10)
   }
 
   const zoomOut = () => {
     zoom > MIN_ZOOM && setZoom(Math.round((zoom - 0.1) * 10) / 10)
-  }
-
-  const addRow = () => {
-    addProductsRow()
-  }
-
-  const saveChanges = () => {
-
   }
 
   return (
@@ -45,7 +37,7 @@ export const Header: FC<Props> = ({isAvailableToAddRows, isAvailableToSave, setZ
             value={'Add'}
             className='header-button'
             disabled={!isAvailableToAddRows}
-            onClick={addRow}
+            onClick={addProductsRow}
           />
           <input
             type={'button'}
