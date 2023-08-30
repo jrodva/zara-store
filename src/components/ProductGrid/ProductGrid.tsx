@@ -58,15 +58,19 @@ export const ProductGrid: FC = (): JSX.Element => {
 
   return (
     <div className='app'>
-      <header className='app-header'>
-        <Header
-          isAvailableToAddRows={products.length < products.flat(1).length}
-          isAvailableToSave={products.every((row) => row.length > 0)}
-          setZoom={setZoom}
-          zoom={zoom}
-          addProductsRow={addProductsRow}
-          saveChanges={saveChanges}/>
-      </header>
+      {
+        !isError &&
+        !isLoading &&
+        <header className='app-header'>
+          <Header
+            isAvailableToAddRows={products.length < products.flat(1).length}
+            isAvailableToSave={products.every((row) => row.length > 0)}
+            setZoom={setZoom}
+            zoom={zoom}
+            addProductsRow={addProductsRow}
+            saveChanges={saveChanges}/>
+        </header>
+      }
       {
         isLoading && <div>Loading...</div>
       }
