@@ -36,23 +36,11 @@ export const useTemplates = ({ productsRows }: { productsRows: number } ): Templ
     setSelectedTemplates(randomTemplates)
   }
 
-  const exchangeSelectedTemplates = (fromIndex: number, toIndex: number): void => {
-    const newSelectedTemplates = [...selectedTemplates]
-    const fromTemplate = newSelectedTemplates[fromIndex]
-    const toTemplate = newSelectedTemplates[toIndex]
-
-    newSelectedTemplates[fromIndex] = toTemplate
-    newSelectedTemplates[toIndex] = fromTemplate
-    setSelectedTemplates(newSelectedTemplates)
-  }
-
-
   return {
     templates,
     isError,
     isLoading,
     selectedTemplates,
-    setSelectedTemplates,
-    exchangeSelectedTemplates
+    setSelectedTemplates
   }
 }

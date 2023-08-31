@@ -39,22 +39,12 @@ export const useProducts = (): ProductsHook => {
     setProducts(newProducts)
   }
 
-  const exchangeRows = (fromIndex: number, toIndex: number): void => {
-    const newProducts = [...products]
-    const fromRow = newProducts[fromIndex]
-    const toRow = newProducts[toIndex]
-
-    newProducts[fromIndex] = toRow
-    newProducts[toIndex] = fromRow
-    setProducts(newProducts)
-  }
 
   return {
     products,
     isError,
     isLoading,
     addEmptyProductsRow,
-    setProducts,
-    exchangeRows
+    setProducts
   }
 }

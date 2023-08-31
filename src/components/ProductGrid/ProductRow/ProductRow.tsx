@@ -9,23 +9,15 @@ import { MAX_PRODUCTS_PER_ROW } from '@constants/products.ts'
 export const ProductRow: FC<Props> = ({
   row,
   rowIndex,
-  exchangeRows,
-  exchangeSelectedTemplates,
-  rows,
   templates,
   selectedTemplates,
   setSelectedTemplates,
   zoom}): JSX.Element => {
 
-  const handleMoveRow = (fromIndex: number, toIndex: number) => {
-    exchangeSelectedTemplates(fromIndex, toIndex)
-    exchangeRows(fromIndex, toIndex)
-  }
-
   const handleSelectTemplate = (event: ChangeEvent<HTMLSelectElement>) => {
     const newSelectedTemplates = [...selectedTemplates]
-    newSelectedTemplates[rowIndex] = event.target.value
 
+    newSelectedTemplates[rowIndex] = event.target.value
     setSelectedTemplates(newSelectedTemplates)
   }
 
@@ -68,16 +60,6 @@ export const ProductRow: FC<Props> = ({
                 }
               </select>
             </div>
-            <button
-              onClick={() => handleMoveRow(rowIndex, rowIndex - 1)}
-              disabled={rowIndex === 0}>
-              Up
-            </button>
-            <button
-              onClick={() => handleMoveRow(rowIndex, rowIndex + 1)}
-              disabled={rowIndex === rows.length - 1}>
-              Down
-            </button>
           </div>
         </div>
       )}

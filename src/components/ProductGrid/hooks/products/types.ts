@@ -6,5 +6,4 @@ export interface ProductsHook {
   isLoading: boolean
   addEmptyProductsRow: () => void
   setProducts: (products: Card[][]) => void
-  exchangeRows: (fromIndex: number, toIndex: number) => void
 }

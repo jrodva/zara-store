@@ -11,12 +11,11 @@ import ErrorMessage from '@components/ProductGrid/ErrorMessage'
 import Loader from '@components/ProductGrid/Loader'
 
 export const ProductGrid: FC = (): JSX.Element => {
-  const { products, isLoading, isError, addEmptyProductsRow, exchangeRows, setProducts } = useProducts()
+  const { products, isLoading, isError, addEmptyProductsRow, setProducts } = useProducts()
   const {
     templates,
     setSelectedTemplates,
     selectedTemplates,
-    exchangeSelectedTemplates
   } = useTemplates({ productsRows: products.length })
   const { zoom, setZoom } = useZoom()
   const { updateGrid } = useGrid()
@@ -88,9 +87,6 @@ export const ProductGrid: FC = (): JSX.Element => {
                     key={rowIndex.toString()}
                     row={row}
                     rowIndex={rowIndex}
-                    exchangeRows={exchangeRows}
-                    exchangeSelectedTemplates={exchangeSelectedTemplates}
-                    rows={products}
                     selectedTemplates={selectedTemplates}
                     setSelectedTemplates={setSelectedTemplates}
                     templates={templates}
