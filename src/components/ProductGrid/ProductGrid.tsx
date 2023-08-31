@@ -8,6 +8,7 @@ import { useZoom } from './hooks/zoom/zoom.ts'
 import { useTemplates } from './hooks/templates/templates.ts'
 import { useGrid } from './hooks/grid/grid.ts'
 import ErrorMessage from '@components/ProductGrid/ErrorMessage'
+import Loader from '@components/ProductGrid/Loader'
 
 export const ProductGrid: FC = (): JSX.Element => {
   const { products, isLoading, isError, addEmptyProductsRow, exchangeRows, setProducts } = useProducts()
@@ -72,7 +73,7 @@ export const ProductGrid: FC = (): JSX.Element => {
         </header>
       }
       {
-        isLoading && <div>Loading...</div>
+        isLoading && <Loader/>
       }
       {
         isError && <ErrorMessage/>
