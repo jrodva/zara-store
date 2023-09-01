@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, JSX } from 'react'
+import { FC, JSX } from 'react'
 import './productRow.scss'
 import { Draggable } from 'react-beautiful-dnd'
 import ProductCard from '../ProductCard'
@@ -14,10 +14,10 @@ export const ProductRow: FC<Props> = ({
   setSelectedTemplates,
   zoom}): JSX.Element => {
 
-  const handleSelectTemplate = (event: ChangeEvent<HTMLSelectElement>) => {
+  const handleSelectTemplate = (alignment: string) => {
     const newSelectedTemplates = [...selectedTemplates]
 
-    newSelectedTemplates[rowIndex] = event.target.value
+    newSelectedTemplates[rowIndex] = alignment
     setSelectedTemplates(newSelectedTemplates)
   }
 
@@ -51,15 +51,16 @@ export const ProductRow: FC<Props> = ({
           </div>
 
           <div className='row-controls'>
-            <div className='selector-container'>
-              <select value={selectedTemplates[rowIndex]} onChange={handleSelectTemplate}>
-                {
-                  templates.map((template, optionIndex) => (
-                    <option key={`temp-${optionIndex}`}  value={template.alignment}> { template.name } </option>
-                  ))
-                }
-              </select>
-            </div>
+            {
+              templates.map((template) => (
+                <img
+                  key={template.name}
+                  src={`./src/assets/${template.alignment}.svg`}
+                  className={`${selectedTemplates[rowIndex] === template.alignment ? 'disabled' : ''}`}
+                  alt={template.name}
+                  onClick={() => handleSelectTemplate(template.alignment)}/>
+              ))
+            }
           </div>
         </div>
       )}
