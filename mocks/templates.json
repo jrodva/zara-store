@@ -2,8 +2,8 @@
   "templates": [
     {
       "id": "1",
-      "name": "Right Template",
-      "alignment": "right"
+      "name": "Left Template",
+      "alignment": "left"
     },
     {
       "id": "2",
@@ -12,8 +12,8 @@
     },
     {
       "id": "3",
-      "name": "Left Template",
-      "alignment": "left"
+      "name": "Right Template",
+      "alignment": "right"
     }
   ]
 }
