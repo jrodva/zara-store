@@ -5,6 +5,7 @@ import ProductCard from '../ProductCard'
 import { Props } from './props.ts'
 import { StrictModeDroppable } from '@utils/StrictModeDroppable.tsx'
 import { MAX_PRODUCTS_PER_ROW } from '@constants/products.ts'
+import deleteLogo from '@assets/delete.svg'
 
 export const ProductRow: FC<Props> = ({
   row,
@@ -19,6 +20,10 @@ export const ProductRow: FC<Props> = ({
 
     newSelectedTemplates[rowIndex] = alignment
     setSelectedTemplates(newSelectedTemplates)
+  }
+
+  const deleteRow = () => {
+
   }
 
   return (
@@ -61,6 +66,10 @@ export const ProductRow: FC<Props> = ({
                   onClick={() => handleSelectTemplate(template.alignment)}/>
               ))
             }
+            <img
+              src={deleteLogo}
+              alt={'Delete Logo'}
+              onClick={deleteRow}/>
           </div>
         </div>
       )}
