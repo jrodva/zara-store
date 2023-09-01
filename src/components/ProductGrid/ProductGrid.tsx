@@ -79,7 +79,7 @@ export const ProductGrid: FC = (): JSX.Element => {
       }
       {
         products.length > 0 && selectedTemplates.length > 0 && (
-          <div className='list-container'>
+          <div className='list-container' style={ { transform: `scale(${zoom})` } }>
             <DragDropContext onDragEnd={handleDragEnd}>
               {
                 products.map((row, rowIndex) => (
@@ -89,8 +89,7 @@ export const ProductGrid: FC = (): JSX.Element => {
                     rowIndex={rowIndex}
                     selectedTemplates={selectedTemplates}
                     setSelectedTemplates={setSelectedTemplates}
-                    templates={templates}
-                    zoom={zoom}/>
+                    templates={templates}/>
                 ))
               }
             </DragDropContext>

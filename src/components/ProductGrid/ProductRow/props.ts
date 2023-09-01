@@ -7,5 +7,4 @@ export interface Props {
   selectedTemplates: string[]
   setSelectedTemplates: (templates: string[]) => void
   templates: Template[]
-  zoom: number
 }

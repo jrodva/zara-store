@@ -12,8 +12,7 @@ export const ProductRow: FC<Props> = ({
   rowIndex,
   templates,
   selectedTemplates,
-  setSelectedTemplates,
-  zoom}): JSX.Element => {
+  setSelectedTemplates}): JSX.Element => {
 
   const handleSelectTemplate = (alignment: string) => {
     const newSelectedTemplates = [...selectedTemplates]
@@ -47,7 +46,7 @@ export const ProductRow: FC<Props> = ({
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                     className='element'>
-                    <ProductCard {...element} zoom={zoom}/>
+                    <ProductCard {...element} />
                   </div>
                 )}
               </Draggable>
