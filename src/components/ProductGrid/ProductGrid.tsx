@@ -1,4 +1,4 @@
-import { FC, JSX } from 'react'
+import {FC, JSX, useEffect} from 'react'
 import './productGrid.scss'
 import Header from '@components/Header'
 import { DragDropContext, DropResult } from 'react-beautiful-dnd'
@@ -18,7 +18,18 @@ export const ProductGrid: FC = (): JSX.Element => {
     selectedTemplates,
   } = useTemplates({ productsRows: products.length })
   const { zoom, setZoom } = useZoom()
-  const { updateGrid } = useGrid()
+  const { updateGrid, grid, isLoadingGrid, isLoadingGridError } = useGrid()
+
+  useEffect(() => {
+    if (Object.keys(grid).length > 0) {
+      const products = grid.map(grid =>  grid.products)
+      const savedSelectedTemplates = grid.map(grid =>  grid.alignment)
+
+      setSelectedTemplates(savedSelectedTemplates)
+      setProducts(products)
+    }
+
+  }, [grid, isLoadingGrid, isLoadingGridError])
 
   const handleDragEnd = (result: DropResult) => {
     if (!result.destination) return

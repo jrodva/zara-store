@@ -1,5 +1,15 @@
 import { Grid } from '@interfaces/Grid.ts'
 
+export const getGrid = () => {
+  return fetch(
+    import.meta.env.VITE_GRID_API_URL,
+    {
+      method: 'GET',
+      mode: 'cors'
+    }
+  )
+}
+
 export const postGrid = (grid: Grid[]) => {
   const gridWithIds = grid.map((gridItem, index) => ({ ...gridItem, id: index + 1 }))
 
